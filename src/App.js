@@ -7,6 +7,7 @@ function App() {
     "https://www.wallpapers13.com/wp-content/uploads/2015/11/Couple-girl-guy-wind-sea-sand-beach-surf-sunset-evening-915x515.jpg",
     "https://www.wallpapers13.com/wp-content/uploads/2019/05/Happy-moments-loving-postcards-pictures-loving-couple-love-hug-toast-915x515.jpg"
   ]
+
   let [index, setIndex] = useState(0)
   return (
     < div className="App" >
