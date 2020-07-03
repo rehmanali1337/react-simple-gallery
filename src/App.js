@@ -1,39 +1,29 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
+// import ImagesContext from './imgsContext'
+import ImageReducer from './ImageReducer'
 
 function App() {
-  let imgs = [
-    "https://www.wallpapers13.com/wp-content/uploads/2015/11/Love-couple-kissing-hand-expression-of-love-romantic-couple-Wallpapers-HD-1920x1200-915x515.jpg",
-    "https://www.wallpapers13.com/wp-content/uploads/2015/11/Couple-girl-guy-wind-sea-sand-beach-surf-sunset-evening-915x515.jpg",
-    "https://www.wallpapers13.com/wp-content/uploads/2019/05/Happy-moments-loving-postcards-pictures-loving-couple-love-hug-toast-915x515.jpg"
-  ]
 
-  let [index, setIndex] = useState(0)
+  // Use of useState to maintain the state of img index value..
+  let [img, changeImg] = useReducer(ImageReducer)
+  // let imgs = React.useContext(ImagesContext)
   return (
+    // <ImagesContext.Provider>
     < div className="App" >
       <h1 > Images Gallery</h1 >
-      <img alt='Couple' className="img" src={imgs[index]} />
+      <img alt='Couple' className="img" src={img} />
       <br />
       <div >
         <button className="btn" onClick={() => {
-          if (index === 0) {
-            setIndex(imgs.length - 1)
-          } else {
-            setIndex(--index)
-          }
-        }
-        }> Prev Image</button >
+          changeImg({ type: 'PREV' })
+        }}> Prev Image</button >
         <button className="btn" onClick={() => {
-          if (index === imgs.length - 1) {
-            setIndex(0)
-
-          } else {
-            setIndex(++index)
-          }
-
+          changeImg({ type: 'NEXT' })
         }}> Next Image</button >
       </div >
     </div >
+    // </ImagesContext.Provider >
   );
 
 }
