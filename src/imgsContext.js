@@ -1,5 +1,6 @@
 import React from 'react';
 
+// createContext is like a global store for variables/components/data/states.
 
 const ImagesContext = React.createContext([
     "https://www.wallpapers13.com/wp-content/uploads/2015/11/Love-couple-kissing-hand-expression-of-love-romantic-couple-Wallpapers-HD-1920x1200-915x515.jpg",
